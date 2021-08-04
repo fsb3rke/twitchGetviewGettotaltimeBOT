@@ -1,2 +1,2 @@
-STREAMER_USERNAME = "panklol"
-STREAM_URL = "https://www.twitch.tv/pankylol"
+STREAMER_USERNAME = ""
+STREAM_URL = ""
