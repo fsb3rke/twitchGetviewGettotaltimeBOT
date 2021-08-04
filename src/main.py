@@ -1,4 +1,4 @@
 import browser
-from getpref import *
+import getpref
 
-browser.Browser(streamUrl, streamerName)
+browser.Browser(getpref.STREAM_URL, getpref.STREAMER_USERNAME)
