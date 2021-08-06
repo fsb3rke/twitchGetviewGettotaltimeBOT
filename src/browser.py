@@ -1,16 +1,16 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from tkinter import *
 import time
 
-
-
-
+options = Options()
+options.headless = True
 
 class Browser:
     def __init__(self,link,STREAMER_NAME):
         self.link = link
         self.stname = STREAMER_NAME
-        self.browser = webdriver.Chrome()
+        self.browser = webdriver.Chrome(options=options)
 
         Browser.goTwitch(self)
     def goTwitch(self):
@@ -34,12 +34,6 @@ class Browser:
             secondLabel = Label(root, text=aaa2)
             secondLabel.pack()
 
-            def key(event):
-                print("pressed", repr(event.char))
-
-            def callback(event):
-                print("clicked at", event.x, event.y)
-
             def closeProgram(event):
                 exit(1)
 
@@ -47,5 +41,3 @@ class Browser:
             btn1.bind("<Button-1>", closeProgram)
             btn1.pack()
             root.mainloop()
-
-            time.sleep(2)
