@@ -36,8 +36,24 @@ class Browser:
 
             def closeProgram(event):
                 exit(1)
+            def reloadTexts(event):
+                allViewsR = self.browser.find_element_by_xpath("/html/body/div[1]/div/div[2]/div[1]/main/div[2]/div[3]/div/div/div[1]/div[1]/div[2]/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div/div/div[1]/div[1]/div/p").text
+                totalTimeR = self.browser.find_element_by_xpath("/html/body/div[1]/div/div[2]/div[1]/main/div[2]/div[3]/div/div/div[1]/div[1]/div[2]/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div/div/div[1]/div[2]/span").text
+                aaa1R = f"| ->{self.stname} total views: {allViewsR} |"
+                aaa2R = f"| ->{self.stname} total time: {totalTimeR} |"
+                firstLabel.config(text=aaa1R)
+                secondLabel.config(text=aaa2R)
+                print(f"""
+                ---------------------------------
+                |->{self.stname} total views: {allViews} |
+                |->{self.stname} total time: {totalTime} |
+                ---------------------------------
+                """)
 
             btn1 = Button(root, text="EXIT")
             btn1.bind("<Button-1>", closeProgram)
             btn1.pack()
+            btn2 = Button(root, text="RELOAD")
+            btn2.bind("<Button-1>", reloadTexts)
+            btn2.pack()
             root.mainloop()
